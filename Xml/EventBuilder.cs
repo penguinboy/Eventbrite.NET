@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using EventbriteApi.Entities;
+using EventbriteNET.Entities;
 using System.IO;
 
-namespace EventbriteApi.Xml
+namespace EventbriteNET.Xml
 {
     public class EventBuilder
     {

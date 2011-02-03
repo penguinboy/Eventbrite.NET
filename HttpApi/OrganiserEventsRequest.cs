@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using EventbriteApi.Entities;
-using EventbriteApi.Xml;
+using EventbriteNET.Entities;
+using EventbriteNET.Xml;
 
-namespace EventbriteApi.HttpApi
+namespace EventbriteNET.HttpApi
 {
     public class OrganiserEventsRequest : RequestBase
     {

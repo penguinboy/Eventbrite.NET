@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 
-namespace EventbriteApi.Xml
+namespace EventbriteNET.Xml
 {
     public class BuilderBase
     {

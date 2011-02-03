@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using EventbriteApi.Entities;
+using EventbriteNET.Entities;
 
-namespace EventbriteApi.Xml
+namespace EventbriteNET.Xml
 {
     interface IBuilder
     {

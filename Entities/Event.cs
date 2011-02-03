@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using EventbriteApi.HttpApi;
+using EventbriteNET.HttpApi;
 
-namespace EventbriteApi.Entities
+namespace EventbriteNET.Entities
 {
     public class Event : IEntity
     {

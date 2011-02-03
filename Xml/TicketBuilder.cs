@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using EventbriteApi.Entities;
+using EventbriteNET.Entities;
 using System.Xml;
 using System.IO;
 
-namespace EventbriteApi.Xml
+namespace EventbriteNET.Xml
 {
     class TicketBuilder
     {
