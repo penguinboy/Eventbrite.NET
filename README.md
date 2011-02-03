@@ -1,4 +1,5 @@
 ﻿# Eventbrite.NET
+
 Eventbrite.NET is an API wrapper for the event management site [eventbrite.com](http://eventbrite.com).
 Currently the focus of the project is around *fetching* data from Eventbrite and representing it in a suiteable class.
 As of writing, there are class representations of Organisers, Events, Tickets, and Attendees. Not all classes
@@ -9,4 +10,5 @@ The XML documents that Eventbrite returns are then parsed into coherant classes.
 The project utilises lazy-loading, ensuring there is minimal overhead for simple requests.
 
 ## Gettting Started
+
 ... Coming soon
