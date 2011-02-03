@@ -1,4 +1,5 @@
-﻿# Eventbrite.NET
+﻿
+# Eventbrite.NET
 
 Eventbrite.NET is an API wrapper for the event management site [eventbrite.com](http://eventbrite.com).
 Currently the focus of the project is around *fetching* data from Eventbrite and representing it in a suiteable class.
@@ -28,7 +29,7 @@ The project utilises lazy-loading, ensuring there is minimal overhead for simple
 
 ### Exploring Organiser Events
 	// Instantiate Organiser entity with the desired organisation ID
-	var organiser = new Organiser(ORGANISER\_ID\_HERE);
+	var organiser = new Organiser(ORGANISER_ID_HERE);
 
 	// Get all the events that the organiser has created
 	var events = organiser.Events;
