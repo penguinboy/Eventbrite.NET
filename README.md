@@ -1,4 +1,5 @@
-﻿# Eventbrite.NET
+﻿
+# Eventbrite.NET
 
 Eventbrite.NET is an API wrapper for the event management site [eventbrite.com](http://eventbrite.com).
 Currently the focus of the project is around *fetching* data from Eventbrite and representing it in a suiteable class.
