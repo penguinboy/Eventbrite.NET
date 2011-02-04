@@ -12,7 +12,7 @@ The project utilises lazy-loading, ensuring there is minimal overhead for simple
 
 ## Gettting Started
 
-1. Download/Fork/Clone Eventbrite.NET code
+1. Download/Fork/Clone Eventbrite.NET code OR you can get the [NuGet](http://nuget.codeplex.com) package `eventbriteNET`
 2. Input your Eventbrite App\_key and User\_key (optional) into your App.config. Below is a sample App.config:
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
