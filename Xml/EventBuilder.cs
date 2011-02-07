@@ -8,13 +8,15 @@ using System.IO;
 
 namespace EventbriteNET.Xml
 {
-    public class EventBuilder
+    class EventBuilder : BuilderBase
     {
+        public EventBuilder(EventbriteContext context) : base(context) { }
+
         public Event Build(string xmlString)
         {
-            var stringReader = new StringReader(xmlString);
+            this.Validate(xmlString);
 
-            var toReturn = new Event();
+            var toReturn = new Event(this.Context);
 
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);
@@ -28,7 +30,7 @@ namespace EventbriteNET.Xml
             toReturn.Modified = DateTime.Parse(doc.GetElementsByTagName("modified")[0].InnerText);
 
             var tickets = doc.GetElementsByTagName("ticket");
-            var builder = new TicketBuilder();
+            var builder = new TicketBuilder(this.Context);
             foreach (XmlNode ticketNode in tickets)
             {
                 var ticket = builder.Build(ticketNode.OuterXml);

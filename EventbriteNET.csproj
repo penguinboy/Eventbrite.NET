@@ -8,7 +8,7 @@
     <ProjectGuid>{4CE2247C-4D7E-4C89-954D-AC6E9B5F79A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventbriteApi</RootNamespace>
+    <RootNamespace>EventbriteNET</RootNamespace>
     <AssemblyName>EventbriteApi</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -44,19 +44,20 @@
   <ItemGroup>
     <Compile Include="Entities\Attendee.cs" />
     <Compile Include="Entities\Event.cs" />
-    <Compile Include="Entities\IEntity.cs" />
-    <Compile Include="Entities\Organiser.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Organizer.cs" />
     <Compile Include="Entities\Ticket.cs" />
+    <Compile Include="EventbriteContext.cs" />
     <Compile Include="HttpApi\EventAttendeesRequest.cs" />
-    <Compile Include="HttpApi\OrganiserEventsRequest.cs" />
+    <Compile Include="HttpApi\EventRequest.cs" />
+    <Compile Include="HttpApi\OrganizerEventsRequest.cs" />
     <Compile Include="HttpApi\RequestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xml\AttendeeBuilder.cs" />
     <Compile Include="Xml\BuilderBase.cs" />
     <Compile Include="Xml\EventAttendeesBuilder.cs" />
     <Compile Include="Xml\EventBuilder.cs" />
-    <Compile Include="Xml\IBuilder.cs" />
-    <Compile Include="Xml\OrganisationEventsBuilder.cs" />
+    <Compile Include="Xml\OrganizerEventsBuilder.cs" />
     <Compile Include="Xml\TicketBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

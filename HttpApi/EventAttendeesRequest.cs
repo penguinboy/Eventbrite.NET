@@ -11,15 +11,15 @@ namespace EventbriteNET.HttpApi
     {
         const string PATH = "event_list_attendees";
 
-        public EventAttendeesRequest(int eventId)
-            : base(PATH)
+        public EventAttendeesRequest(int eventId, EventbriteContext context)
+            : base(PATH, context)
         {
             this.AddGet("id", eventId.ToString());
         }
 
         public Attendee[] GetResponse()
         {
-            return new EventAttendeesBuilder().Build(base.GetResponse());
+            return new EventAttendeesBuilder(this.Context).Build(base.GetResponse());
         }
     }
 }

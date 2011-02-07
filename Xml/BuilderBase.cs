@@ -3,11 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using EventbriteNET.Entities;
+using System.IO;
 
 namespace EventbriteNET.Xml
 {
-    public class BuilderBase
+    class BuilderBase
     {
+        protected EventbriteContext Context;
+        public BuilderBase(EventbriteContext context)
+        {
+            this.Context = context;
+        }
+
+        protected void Validate(string xmlString)
+        {
+            var doc = new XmlDocument();
+            doc.LoadXml(xmlString);
+
+            if (doc.GetElementsByTagName("error").Count > 0)
+            {
+                throw new InvalidOperationException("Response contained an error: " + doc.GetElementsByTagName("error")[0].InnerText);
+            }
+        }
+
         public string TryGetElementValue(string elementName, XmlDocument doc)
         {
             var nodeArray = doc.GetElementsByTagName(elementName);

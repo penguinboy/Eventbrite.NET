@@ -8,13 +8,15 @@ using System.Xml;
 
 namespace EventbriteNET.Xml
 {
-    public class AttendeeBuilder : BuilderBase
+    class AttendeeBuilder : BuilderBase
     {
+        public AttendeeBuilder(EventbriteContext context) : base(context) { }
+
         public Attendee Build(string xmlString)
         {
-            var stringReader = new StringReader(xmlString);
+            this.Validate(xmlString);
 
-            var toReturn = new Attendee();
+            var toReturn = new Attendee(this.Context);
 
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);

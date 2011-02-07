@@ -12,32 +12,7 @@ namespace EventbriteNET.HttpApi
 {
     public class RequestBase
     {
-        const string CONFIGAPPKEY = "EventbriteAppKey";
-        const string CONFIGUSERKEY = "EventbriteUserKey";
-        const string HOST = "https://www.eventbrite.com/xml/";
-        static string APIKEY
-        {
-            get
-            {
-                if (ConfigurationManager.AppSettings[CONFIGAPPKEY] != null)
-                {
-                    return ConfigurationManager.AppSettings[CONFIGAPPKEY];
-                }
-                throw new Exception("Not Eventbrite App Key found in App.config");
-            }
-        }
-
-        static string USERKEY
-        {
-            get
-            {
-                if (ConfigurationManager.AppSettings[CONFIGUSERKEY] != null)
-                {
-                    return ConfigurationManager.AppSettings[CONFIGUSERKEY];
-                }
-                return null;
-            }
-        }
+        protected EventbriteContext Context;
 
         private Dictionary<string, string> GetParameters;
         private string Path;
@@ -47,8 +22,8 @@ namespace EventbriteNET.HttpApi
             get
             {
                 var builder = new StringBuilder();
-                builder.Append(HOST);
-                builder.Append(Path);
+                builder.Append(this.Context.Host);
+                builder.Append(this.Path);
                 builder.Append('?');
 
                 var firstKey = true;
@@ -67,14 +42,16 @@ namespace EventbriteNET.HttpApi
             }
         }
         
-        public RequestBase(string path)
+        public RequestBase(string path, EventbriteContext context)
         {
-            this.GetParameters = new Dictionary<string, string>();
-            this.AddGet("app_key", APIKEY);
+            this.Context = context;
 
-            if (USERKEY != null)
+            this.GetParameters = new Dictionary<string, string>();
+            this.AddGet("app_key", context.AppKey);
+
+            if (context.UserKey != null)
             {
-                this.AddGet("user_key", USERKEY);
+                this.AddGet("user_key", context.UserKey);
             }
             
             this.Path = path;
@@ -94,7 +71,6 @@ namespace EventbriteNET.HttpApi
 
         public RequestBase RemoveGet(string key)
         {
-            
             GetParameters.Remove(key);
             return this;
         }

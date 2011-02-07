@@ -10,7 +10,7 @@ namespace EventbriteNET.Entities
         FixedPrice,
         Donation
     }
-    public class Ticket
+    public class Ticket : EntityBase
     {
         public int Id;
         public string Name;
@@ -22,5 +22,7 @@ namespace EventbriteNET.Entities
         public DateTime EndDateTime;
         public int? QuantityAvailable;
         public int? QuantitySold;
+
+        public Ticket(EventbriteContext context) : base(context) { }
     }
 }

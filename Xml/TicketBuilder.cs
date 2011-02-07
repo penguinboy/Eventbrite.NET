@@ -8,13 +8,17 @@ using System.IO;
 
 namespace EventbriteNET.Xml
 {
-    class TicketBuilder
+    class TicketBuilder : BuilderBase
     {
+        public TicketBuilder(EventbriteContext context) : base(context) { }
+
         public Ticket Build(string xmlString)
         {
+            this.Validate(xmlString);
+
             var stringReader = new StringReader(xmlString);
 
-            var toReturn = new Ticket();
+            var toReturn = new Ticket(this.Context);
 
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);

@@ -10,7 +10,7 @@ namespace EventbriteNET.Entities
         Male,
         Female
     }
-    public class Attendee : IEntity
+    public class Attendee : EntityBase
     {
         public int Id;
         public int EventId;
@@ -62,5 +62,7 @@ namespace EventbriteNET.Entities
         public AttendeeGender? Gender;
         public DateTime? BirthDate;
         public int? Age;
+
+        public Attendee(EventbriteContext context) : base(context) { }
     }
 }

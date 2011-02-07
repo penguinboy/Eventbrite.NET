@@ -6,7 +6,7 @@ using EventbriteNET.HttpApi;
 
 namespace EventbriteNET.Entities
 {
-    public class Event : IEntity
+    public class Event : EntityBase
     {
         public int Id;
         public string Title;
@@ -26,10 +26,12 @@ namespace EventbriteNET.Entities
                 if (this.attendees == null)
                 {
                     this.attendees = new List<Attendee>();
-                    this.attendees.AddRange(new EventAttendeesRequest(this.Id).GetResponse());
+                    this.attendees.AddRange(new EventAttendeesRequest(this.Id, Context).GetResponse());
                 }
                 return attendees;
             }
         }
+
+        public Event(EventbriteContext context) : base(context) { }
     }
 }

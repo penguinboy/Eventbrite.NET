@@ -8,10 +8,14 @@ using System.Xml;
 
 namespace EventbriteNET.Xml
 {
-    class EventAttendeesBuilder
+    class EventAttendeesBuilder : BuilderBase
     {
+        public EventAttendeesBuilder(EventbriteContext context) : base(context) { }
+
         public Attendee[] Build(string xmlString)
         {
+            this.Validate(xmlString);
+
             var stringReader = new StringReader(xmlString);
             var toReturn = new List<Attendee>();
 
@@ -19,7 +23,7 @@ namespace EventbriteNET.Xml
             doc.LoadXml(xmlString);
 
             var attendees = doc.GetElementsByTagName("attendee");
-            var builder = new AttendeeBuilder();
+            var builder = new AttendeeBuilder(this.Context);
             foreach (XmlNode attendeeNode in attendees)
             {
                 var attendee = builder.Build(attendeeNode.OuterXml);
