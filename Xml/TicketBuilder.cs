@@ -47,7 +47,7 @@ namespace EventbriteNET.Xml
             }
             if (toReturn.Type == TicketType.FixedPrice)
             {
-                toReturn.Price = float.Parse(doc.GetElementsByTagName("price")[0].InnerText);
+                toReturn.Price = Decimal.Parse(doc.GetElementsByTagName("price")[0].InnerText);
             }
 
 

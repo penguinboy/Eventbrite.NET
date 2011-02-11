@@ -17,7 +17,7 @@ namespace EventbriteNET.Entities
         public string Description;
         public TicketType Type;
         public string Currency;
-        public float Price;
+        public decimal Price;
         public DateTime? StartDateTime;
         public DateTime EndDateTime;
         public int? QuantityAvailable;
