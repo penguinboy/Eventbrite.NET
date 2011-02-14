@@ -14,7 +14,14 @@ namespace EventbriteNET.Xml
 
         public Attendee[] Build(string xmlString)
         {
-            this.Validate(xmlString);
+            try
+            {
+                this.Validate(xmlString);
+            }
+            catch (Exception e)
+            {
+                return new Attendee[] { };
+            }
 
             var stringReader = new StringReader(xmlString);
             var toReturn = new List<Attendee>();

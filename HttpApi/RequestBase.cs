@@ -36,8 +36,6 @@ namespace EventbriteNET.HttpApi
                     firstKey = false;
                 }
 
-                Console.WriteLine(builder.ToString());
-
                 return builder.ToString();
             }
         }
