@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Eventbrite.NET - API Wrapper by Will Rayner</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+	</head>
+	<body>
+		<a href="http://github.com/penguinboy/Eventbrite.NET"><img alt="Fork me on GitHub" id="ribbon" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+		
+		<div class="wrapper">
+			<h1>Eventbrite.NET</h1>
+			<span class="author">Will Rayner</span>
+			<div>
+				Eventbrite.NET is an API wrapper written in C# that provides a statically typed interface for the publicly available Eventbrite API. The wrapper doesn't do anything that you can't do yourself with some HTTP fetching and XML parsing. That said, it'll be a truckload quicker to use it than write your own.
+			</div>
+			<h2>Installation</h2>
+			<div>
+				<h3>NuGet</h3>
+				<div>
+					Use <a href="http://nuget.org/">NuGet</a> to fetch and install the library for you. You can see the project's NuGet page <a href="http://nuget.org/Packages/Packages/Details/Eventbrite-NET-1-0-3">here</a>. This is the recommended method for install.
+					<div class="code">Install-Package eventbriteNET</div>
+				</div>
+				<h3>GitHub Clone</h3>
+				<div>
+					<ul>
+						<li>
+							Clone the repository:
+							<div class="code">git clone https://github.com/penguinboy/Eventbrite.NET.git</div>
+						</li>
+						<li>
+							Include the project within your solution and add a reference to it.
+						</li>
+					</ul>
+				</div>
+				<h3>Just download the DLL</h3>
+				<div>
+					Just download <a href="EventbriteApi.dll">the EventbriteAPI.dll file</a>. Add a reference to the DLL in your project.
+				</div>
+			</div>
+			<h2>Examples</h2>
+			<h3>Exploring Organizer Events</h3>
+			<div>
+				<div class="code">
+// Instantiate Organizer entity with the desired organizer ID
+var organizer = context.GetOrganizer(ORGANIZER_ID_HERE);
+
+// Get all the events that the organizer has created
+var events = organizer.Events;
+
+// Get the first event in the collection
+var firstEvent = events.First().Value;
+					
+// All the attendees in that event
+var attendees = firstEvent.Attendees;
+
+// All the tickets in that event
+var tickets = firstEvent.Tickets;
+				</div>
+				There are plenty of properties available in each of these objects. Again, exploring is the best way to learn!
+				
+			</div>
+			<h2>API Breakdown</h2>
+			<div>
+				Coming soon.
+			</div>
+		</div>
+	</body>
+</html>

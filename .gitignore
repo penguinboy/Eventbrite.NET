@@ -1,7 +1,0 @@
-obj
-bin
-*.csproj.user
-*.resharper.user
-*.resharper
-*.suo
-*.cache
