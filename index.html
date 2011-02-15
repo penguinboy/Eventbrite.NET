@@ -7,62 +7,87 @@
 	</head>
 	<body>
 		<a href="http://github.com/penguinboy/Eventbrite.NET"><img alt="Fork me on GitHub" id="ribbon" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
-		
+		<div class="nav">
+			<a href="#introduction">Introduction</a>
+			<a href="#installation">Installation</a>
+			<a href="#quickstart">Quick Start</a>
+			<a href="#notes">API Notes</a>
+		</div>
 		<div class="wrapper">
-			<h1>Eventbrite.NET</h1>
+			<h1 id="introduction">Eventbrite.NET</h1>
 			<span class="author">Will Rayner</span>
 			<div>
+				<p>
 				Eventbrite.NET is an API wrapper written in C# that provides a statically typed interface for the publicly available Eventbrite API. The wrapper doesn't do anything that you can't do yourself with some HTTP fetching and XML parsing. That said, it'll be a truckload quicker to use it than write your own.
+				</p>
 			</div>
-			<h2>Installation</h2>
+			<h2 id="installation">Installation</h2>
 			<div>
 				<h3>NuGet</h3>
 				<div>
+					<p>
 					Use <a href="http://nuget.org/">NuGet</a> to fetch and install the library for you. You can see the project's NuGet page <a href="http://nuget.org/Packages/Packages/Details/Eventbrite-NET-1-0-3">here</a>. This is the recommended method for install.
+					</p>
 					<div class="code">Install-Package eventbriteNET</div>
 				</div>
 				<h3>GitHub Clone</h3>
 				<div>
 					<ul>
 						<li>
-							Clone the repository:
+							<p>Clone the repository:<p>
 							<div class="code">git clone https://github.com/penguinboy/Eventbrite.NET.git</div>
 						</li>
 						<li>
+							<p>
 							Include the project within your solution and add a reference to it.
+							</p>
 						</li>
 					</ul>
 				</div>
 				<h3>Just download the DLL</h3>
 				<div>
+					<p>
 					Just download <a href="EventbriteApi.dll">the EventbriteAPI.dll file</a>. Add a reference to the DLL in your project.
+					</p>
 				</div>
 			</div>
-			<h2>Examples</h2>
-			<h3>Exploring Organizer Events</h3>
+			<h2 id="quickstart">Quick Start</h2>
 			<div>
 				<div class="code">
+// Create the context object with your API details
+var context = new EventbriteContext("APP_KEY", "USER_KEY");
+
 // Instantiate Organizer entity with the desired organizer ID
 var organizer = context.GetOrganizer(ORGANIZER_ID_HERE);
 
 // Get all the events that the organizer has created
-var events = organizer.Events;
+var events = organizer.Events.Values;
 
 // Get the first event in the collection
-var firstEvent = events.First().Value;
-					
+var firstEvent = events.First();
+
 // All the attendees in that event
 var attendees = firstEvent.Attendees;
 
 // All the tickets in that event
-var tickets = firstEvent.Tickets;
+var tickets = firstEvent.Tickets.Values;
 				</div>
 				There are plenty of properties available in each of these objects. Again, exploring is the best way to learn!
 				
 			</div>
-			<h2>API Breakdown</h2>
+			<h2 id="notes">API Notes</h2>
 			<div>
-				Coming soon.
+				<p>
+				The first thing to remember when starting to use Eventbrite.NET is that context is everything.
+				The <span class="code">EventbriteContext</span> object is the starting point for all API interactions. You instantiate the object with your <a href="http://www.eventbrite.com/api/key/">application key</a> and, if you wish to, your <a href="http://www.eventbrite.com/userkeyapi">user key</a>.
+				</p>
+				<div class="code">var context = new EventbriteContext("APP_KEY", "USER_KEY");</div>
+				<p>
+				For here on, you have access to a <span class="code">GetOrganizer</span> and <span class="code">GetEvent</span> methods.
+				</p><p style="margin-top: 15px"><span style="font-weight: bold">It is important</span> to know that <span class="code">GetEvent</span> will
+				throw an error if you request an event that doesn't exist, while <span class="code">GetOrganizer</span> will <span style="font-style: italic">not</span>. This is because there is because of limitation in the Eventbrite API, and
+				is an unfortunate inconsistency of Eventbrite.NET.
+				</p>
 			</div>
 		</div>
 	</body>
