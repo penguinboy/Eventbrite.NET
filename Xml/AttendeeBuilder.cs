@@ -71,10 +71,10 @@ namespace EventbriteNET.Xml
             toReturn.BirthDate = TryGetElementDateTimeValue("birth_date", doc);
             toReturn.Age = TryGetElementNullableIntValue("age", doc);
 
-            var gender = TryGetElementNullableIntValue("gender", doc);
-            if (gender != null)
+            string gender = TryGetElementValue("gender", doc);
+            if (!String.IsNullOrEmpty(gender))
             {
-                toReturn.Gender = (AttendeeGender)gender;
+                toReturn.Gender = (AttendeeGender)Enum.Parse(typeof(AttendeeGender), gender);
             }
 
             return toReturn;
