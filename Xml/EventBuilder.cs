@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using EventbriteNET.Entities;
-using System.IO;
 
 namespace EventbriteNET.Xml
 {
@@ -21,7 +17,7 @@ namespace EventbriteNET.Xml
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);
 
-            toReturn.Id = Int32.Parse(doc.GetElementsByTagName("id")[0].InnerText);
+            toReturn.Id = long.Parse(doc.GetElementsByTagName("id")[0].InnerText);
             toReturn.Title = doc.GetElementsByTagName("title")[0].InnerText;
             toReturn.Description = doc.GetElementsByTagName("description")[0].InnerText; ;
             toReturn.StartDateTime = DateTime.Parse(doc.GetElementsByTagName("start_date")[0].InnerText);

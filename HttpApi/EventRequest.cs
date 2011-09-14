@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventbriteNET.Entities;
+﻿using EventbriteNET.Entities;
 using EventbriteNET.Xml;
 
 namespace EventbriteNET.HttpApi

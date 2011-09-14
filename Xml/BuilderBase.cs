@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
-using EventbriteNET.Entities;
-using System.IO;
 
 namespace EventbriteNET.Xml
 {

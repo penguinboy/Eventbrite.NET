@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using EventbriteNET.HttpApi;
 
 namespace EventbriteNET.Entities
 {
     public class Event : EntityBase
     {
-        public int Id;
+        public long Id;
         public string Title;
         public string Description;
         public DateTime StartDateTime;

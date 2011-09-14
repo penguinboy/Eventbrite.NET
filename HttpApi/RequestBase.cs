@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Configuration;
 using System.Net;
-using System.Runtime.Serialization;
-using System.Xml;
-using System.IO;
 
 namespace EventbriteNET.HttpApi
 {
