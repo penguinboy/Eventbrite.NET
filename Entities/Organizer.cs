@@ -17,14 +17,14 @@ namespace EventbriteNET.Entities
             }
         }
 
-        private Dictionary<int, Event> events;
-        public Dictionary<int, Event> Events
+        private Dictionary<int64, Event> events;
+        public Dictionary<int64, Event> Events
         {
             get
             {
                 if (events == null)
                 {
-                    events = new Dictionary<int, Event>();
+                    events = new Dictionary<int64, Event>();
                     var eventArray = new OrganizerEventsRequest(this.Id, Context).GetResponse();
                     foreach (var eventEntity in eventArray)
                     {
