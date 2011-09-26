@@ -5,8 +5,8 @@ namespace EventbriteNET.Entities
 {
     public class Organizer : EntityBase
     {
-        private int id;
-        public int Id
+        private long id;
+        public long Id
         {
             get
             {
@@ -32,7 +32,7 @@ namespace EventbriteNET.Entities
             }
         }
 
-        public Organizer(int id, EventbriteContext context) : base(context)
+        public Organizer(long id, EventbriteContext context) : base(context)
         {
             this.id = id;
         }

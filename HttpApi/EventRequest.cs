@@ -7,7 +7,7 @@ namespace EventbriteNET.HttpApi
     {
         const string PATH = "event_get";
 
-        public EventRequest(int id, EventbriteContext context)
+        public EventRequest(long id, EventbriteContext context)
             : base(PATH, context)
         {
             this.AddGet("id", id.ToString());

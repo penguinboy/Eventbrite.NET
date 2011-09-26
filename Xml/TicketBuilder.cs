@@ -20,7 +20,7 @@ namespace EventbriteNET.Xml
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);
 
-            toReturn.Id = Int32.Parse(doc.GetElementsByTagName("id")[0].InnerText);
+            toReturn.Id = long.Parse(doc.GetElementsByTagName("id")[0].InnerText);
             toReturn.Name = doc.GetElementsByTagName("name")[0].InnerText;
             toReturn.Description = doc.GetElementsByTagName("description")[0].InnerText;
             toReturn.Type = (TicketType)Int32.Parse(doc.GetElementsByTagName("type")[0].InnerText);

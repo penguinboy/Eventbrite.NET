@@ -32,6 +32,21 @@ namespace EventbriteNET.Xml
             return null;
         }
 
+        public long TryGetElementLongValue(string elementName, XmlDocument doc)
+        {
+            return long.Parse(TryGetElementValue(elementName, doc));
+        }
+
+        public long? TryGetElementNullableLongValue(string elementName, XmlDocument doc)
+        {
+            var value = TryGetElementValue(elementName, doc);
+            if (value == null)
+            {
+                return null;
+            }
+            return long.Parse(value);
+        }
+
         public int TryGetElementIntValue(string elementName, XmlDocument doc)
         {
             return Int32.Parse(TryGetElementValue(elementName, doc));

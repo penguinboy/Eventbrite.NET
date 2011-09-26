@@ -9,7 +9,7 @@ namespace EventbriteNET.Entities
     }
     public class Ticket : EntityBase
     {
-        public int Id;
+        public long Id;
         public string Name;
         public string Description;
         public TicketType Type;
