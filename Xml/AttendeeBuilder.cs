@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using EventbriteNET.Entities;
-using System.IO;
 using System.Xml;
 
 namespace EventbriteNET.Xml
@@ -21,9 +17,9 @@ namespace EventbriteNET.Xml
             var doc = new XmlDocument();
             doc.LoadXml(xmlString);
 
-            toReturn.Id = TryGetElementIntValue("id", doc);
-            toReturn.EventId = TryGetElementIntValue("event_id", doc);
-            toReturn.TicketId = TryGetElementNullableIntValue("ticket_id", doc);
+            toReturn.Id = TryGetElementLongValue("id", doc);
+            toReturn.EventId = TryGetElementLongValue("event_id", doc);
+            toReturn.TicketId = TryGetElementNullableLongValue("ticket_id", doc);
             toReturn.Quantity = TryGetElementNullableIntValue("quantity", doc);
             toReturn.Currency = TryGetElementValue("currency", doc);
             toReturn.AmountPaid = TryGetElementNullableFloatValue("amount_paid", doc);

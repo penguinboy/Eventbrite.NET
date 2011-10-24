@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using EventbriteNET.HttpApi;
 
 namespace EventbriteNET.Entities
 {
     public class Organizer : EntityBase
     {
-        private int id;
-        public int Id
+        private long id;
+        public long Id
         {
             get
             {
@@ -17,14 +14,14 @@ namespace EventbriteNET.Entities
             }
         }
 
-        private Dictionary<int, Event> events;
-        public Dictionary<int, Event> Events
+        private Dictionary<long, Event> events;
+        public Dictionary<long, Event> Events
         {
             get
             {
                 if (events == null)
                 {
-                    events = new Dictionary<int, Event>();
+                    events = new Dictionary<long, Event>();
                     var eventArray = new OrganizerEventsRequest(this.Id, Context).GetResponse();
                     foreach (var eventEntity in eventArray)
                     {
@@ -35,7 +32,7 @@ namespace EventbriteNET.Entities
             }
         }
 
-        public Organizer(int id, EventbriteContext context) : base(context)
+        public Organizer(long id, EventbriteContext context) : base(context)
         {
             this.id = id;
         }

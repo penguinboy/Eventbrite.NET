@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EventbriteNET.Entities
 {
@@ -12,9 +9,9 @@ namespace EventbriteNET.Entities
     }
     public class Attendee : EntityBase
     {
-        public int Id;
-        public int EventId;
-        public int? TicketId;
+        public long Id;
+        public long EventId;
+        public long? TicketId;
         public int? Quantity;
         public string Currency;
         public float? AmountPaid;

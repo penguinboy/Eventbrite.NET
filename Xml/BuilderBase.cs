@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
-using EventbriteNET.Entities;
-using System.IO;
 
 namespace EventbriteNET.Xml
 {
@@ -35,6 +30,21 @@ namespace EventbriteNET.Xml
                 return nodeArray[0].InnerText;
             }
             return null;
+        }
+
+        public long TryGetElementLongValue(string elementName, XmlDocument doc)
+        {
+            return long.Parse(TryGetElementValue(elementName, doc));
+        }
+
+        public long? TryGetElementNullableLongValue(string elementName, XmlDocument doc)
+        {
+            var value = TryGetElementValue(elementName, doc);
+            if (value == null)
+            {
+                return null;
+            }
+            return long.Parse(value);
         }
 
         public int TryGetElementIntValue(string elementName, XmlDocument doc)

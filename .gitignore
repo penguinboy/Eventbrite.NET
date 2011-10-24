@@ -5,3 +5,4 @@ bin
 *.resharper
 *.suo
 *.cache
+_ReSharper.*

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventbriteNET.Entities;
+﻿using EventbriteNET.Entities;
 using EventbriteNET.Xml;
 
 namespace EventbriteNET.HttpApi
@@ -11,7 +7,7 @@ namespace EventbriteNET.HttpApi
     {
         const string PATH = "organizer_list_events";
 
-        public OrganizerEventsRequest(int organiserId, EventbriteContext context)
+        public OrganizerEventsRequest(long organiserId, EventbriteContext context)
             : base(PATH, context)
         {
             this.AddGet("id", organiserId.ToString());
